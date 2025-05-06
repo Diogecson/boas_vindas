@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Boas-Vindas UniFECAF</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f8fb;
+      margin: 0;
+      padding: 0;
+    }
+    .tela-login, .tela-boas-vindas {
+      display: none;
+      padding: 40px 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    .tela-login.active, .tela-boas-vindas.active {
+      display: block;
+    }
+    h1 {
+      background-color: #1158A6;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin: 0;
+    }
+    h2 {
+      color: #1158A6;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #FAA612;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-left: 5px solid #FAA612;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    .destaque {
+      font-weight: bold;
+      color: #1158A6;
+    }
+    a {
+      color: #1158A6;
+      text-decoration: none;
+    }
+    .botao {
+      display: inline-block;
+      background-color: #FAA612;
+      color: black;
+      padding: 10px 15px;
+      margin-top: 10px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Seja bem-vindo à Jornada do Aluno</h1>
+
+  <div class="tela-login active" id="tela-login">
+    <h2>Preencha seus dados para começar</h2>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" placeholder="Digite seu nome" />
+
+    <label for="data">Data de Nascimento:</label>
+    <input type="date" id="data" />
+
+    <button onclick="entrar()">Entrar</button>
+  </div>
+
+  <div class="tela-boas-vindas" id="tela-boas-vindas">
+    <h2 id="saudacao"></h2>
+
+    <section>
+      <h3>Ambiente de Aula</h3>
+      <p><span class="destaque">RA:</span> **</p>
+      <p><span class="destaque">Login:</span> **</p>
+      <p><span class="destaque">Senha:</span> **</p>
+      <a class="botao" href="https://fecaf.brightspace.com" target="_blank">Acessar Ambiente</a><br/>
+      <a href="https://www.youtube.com/watch?v=ytQwZ92Lx24" target="_blank">Vídeo de ajuda</a>
+    </section>
+
+    <section>
+      <h3>Secretária Virtual</h3>
+      <p><span class="destaque">Login:</span> **</p>
+      <p><span class="destaque">Senha:</span> **</p>
+      <a class="botao" href="https://mentorweb.fecaf.com.br/" target="_blank">Acessar Mentor</a><br/>
+      <a href="https://www.youtube.com/watch?v=nR--e6EKVsY" target="_blank">Vídeo de ajuda</a>
+    </section>
+
+    <section>
+      <h3>Email do Aluno (Gmail)</h3>
+      <p><span class="destaque">Email:</span> aluno@a.fecaf.com.br</p>
+      <p><span class="destaque">Senha:</span> Sua data de nascimento</p>
+      <a href="https://www.youtube.com/watch?v=2McSLt_sxNM" target="_blank">Vídeo de ajuda</a>
+    </section>
+
+    <section>
+      <h3>Aplicativos para Baixar</h3>
+      <ul>
+        <li><a href="https://play.google.com/store/apps/details?id=com.inovatecnologia.carteirinha" target="_blank">Carteirinha Digital (Android)</a></li>
+        <li><a href="https://apps.apple.com/br/app/carteirinha/id1476399490" target="_blank">Carteirinha Digital (iPhone)</a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.d2l.brightspace.student.android" target="_blank">Brightspace App (Android)</a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=edusoft.com.br.mentorweb" target="_blank">Mentor App (Android)</a></li>
+        <li><a href="https://apps.apple.com/br/app/mentor-mobile/id1318801503" target="_blank">Mentor App (iPhone)</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Outros Links</h3>
+      <a href="https://linktr.ee/unifecafsede" class="botao" target="_blank">Linktree UniFECAF</a>
+    </section>
+  </div>
+
+  <script>
+    function entrar() {
+      const nome = document.getElementById("nome").value;
+      const telaLogin = document.getElementById("tela-login");
+      const telaBoasVindas = document.getElementById("tela-boas-vindas");
+      const saudacao = document.getElementById("saudacao");
+
+      if (nome.trim() !== "") {
+        saudacao.innerText = "Bem-vindo " + nome + " à UniFECAF!";
+        telaLogin.classList.remove("active");
+        telaBoasVindas.classList.add("active");
+      } else {
+        alert("Por favor, preencha seu nome.");
+      }
+    }
+  </script>
+
+</body>
+</html>
