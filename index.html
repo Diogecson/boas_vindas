@@ -4,156 +4,224 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Boas-Vindas UniFECAF</title>
+  <title>Sistemas do Aluno | UniFECAF</title>
+  <link rel="icon" href="https://www.unifecaf.com.br/favicon.ico" />
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f8fb;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0e2d40;
+      color: #fff;
     }
-    .tela-login, .tela-boas-vindas {
-      display: none;
-      padding: 40px 20px;
-      max-width: 600px;
+
+    .container {
+      padding: 30px 20px;
+      max-width: 1200px;
       margin: auto;
     }
-    .tela-login.active, .tela-boas-vindas.active {
-      display: block;
-    }
+
     h1 {
-      background-color: #1158A6;
-      color: white;
-      padding: 20px;
       text-align: center;
-      margin: 0;
+      margin-bottom: 40px;
     }
-    h2 {
-      color: #1158A6;
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
     }
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    input {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      background-color: #FAA612;
-      border: none;
-      padding: 10px 20px;
-      margin-top: 20px;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    section {
-      background: white;
+
+    .card {
+      background: #122c3f;
+      border-radius: 16px;
       padding: 20px;
-      margin: 20px 0;
-      border-left: 5px solid #FAA612;
-      border-radius: 8px;
-      box-shadow: 0 0 10px #ccc;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    .destaque {
-      font-weight: bold;
-      color: #1158A6;
+
+    .card h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
     }
-    a {
-      color: #1158A6;
-      text-decoration: none;
+
+    .card p {
+      font-size: 14px;
+      margin: 6px 0;
+      color: #ccc;
     }
-    .botao {
+
+    .badges {
+      margin: 10px 0;
+    }
+
+    .badge {
       display: inline-block;
-      background-color: #FAA612;
-      color: black;
-      padding: 10px 15px;
-      margin-top: 10px;
-      border-radius: 5px;
+      background: #00c27e;
+      color: #000;
+      padding: 4px 8px;
+      border-radius: 8px;
+      font-size: 12px;
+      margin-right: 8px;
+      font-weight: bold;
+    }
+
+    .buttons {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .buttons a {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 14px;
       text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-info {
+      background-color: #0e2d40;
+      border: 2px solid #00c27e;
+      color: #00c27e;
+    }
+
+    .btn-info:hover {
+      background-color: #00c27e;
+      color: #000;
+    }
+
+    .btn-primary {
+      background-color: #00c27e;
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      background-color: #00a96d;
     }
   </style>
 </head>
+
 <body>
+  <div class="container" id="login-screen" style="display: block;">
+    
+    <div class="card" style="max-width: 400px; margin: auto;">
+    
+      <h1>Bem-vindo à Jornada do Aluno</h1>
+      
+    <div class="input-group" style="text-align: left; margin-bottom: 20px;">
+    
+        <label for="nome">Nome:</label>
+        <input type="text" style="width: 100%; padding: 10px; border-radius: 6px; border: none;" id="nome" placeholder="Digite seu nome"/>
+      </div>
+      
+    <div class="input-group" style="text-align: left; margin-bottom: 20px;">
+    
+        <label for="nascimento">Data de nascimento:</label>
+        <input type="date" style="width: 100%; padding: 10px; border-radius: 6px; border: none;" id="nascimento"/>
+      </div>
+      <button onclick="entrar()" class="btn-primary" style="margin-top: 10px;">Entrar</button>
+    </div>
+  </div>
+  <div class="container" id="sistema-screen" style="display: none;">
 
-  <h1>Seja bem-vindo à Jornada do Aluno</h1>
+  <div class="container">
+    <h1>Sistemas e Acessos do Aluno</h1>
+    <div class="grid">
+      
+    <div class="card" style="max-width: 400px; margin: auto;">
+    
+        <h2>Ambiente de Aula (Brightspace)</h2>
+        <div class="badges">
+          <span class="badge">Ensino</span>
+          <span class="badge">Presencial / EAD</span>
+        </div>
+        <p>RA: **</p>
+        <p>Login: **</p>
+        <p>Senha: **</p>
+        <div class="buttons">
+          <a class="btn-info" href="https://www.youtube.com/watch?v=ytQwZ92Lx24" target="_blank">Saiba Mais</a>
+          <a class="btn-primary" href="https://fecaf.brightspace.com" target="_blank">Acessar</a>
+        </div>
+      </div>
 
-  <div class="tela-login active" id="tela-login">
-    <h2>Preencha seus dados para começar</h2>
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" placeholder="Digite seu nome" />
+      
+    <div class="card" style="max-width: 400px; margin: auto;">
+    
+        <h2>Secretária Virtual (Mentor)</h2>
+        <div class="badges">
+          <span class="badge">Financeiro</span>
+          <span class="badge">Acadêmico</span>
+        </div>
+        <p>Login: **</p>
+        <p>Senha: **</p>
+        <div class="buttons">
+          <a class="btn-info" href="https://www.youtube.com/watch?v=nR--e6EKVsY" target="_blank">Saiba Mais</a>
+          <a class="btn-primary" href="https://mentorweb.fecaf.com.br/" target="_blank">Acessar</a>
+        </div>
+      </div>
 
-    <label for="data">Data de Nascimento:</label>
-    <input type="date" id="data" />
+      
+    <div class="card" style="max-width: 400px; margin: auto;">
+    
+        <h2>Email do Aluno</h2>
+        <div class="badges">
+          <span class="badge">Gmail</span>
+          <span class="badge">Google</span>
+        </div>
+        <p>Email: aluno@a.fecaf.com.br</p>
+        <p>Senha: Sua data de nascimento</p>
+        <div class="buttons">
+          <a class="btn-info" href="https://www.youtube.com/watch?v=2McSLt_sxNM" target="_blank">Saiba Mais</a>
+          <a class="btn-primary" href="https://mail.google.com" target="_blank">Acessar</a>
+        </div>
+      </div>
 
-    <button onclick="entrar()">Entrar</button>
+      
+    <div class="card" style="max-width: 400px; margin: auto;">
+    
+        <h2>Aplicativos para Baixar</h2>
+        <div class="badges">
+          <span class="badge">Mobile</span>
+          <span class="badge">Android / iOS</span>
+        </div>
+        <p>Carteirinha Digital, Brightspace e Mentor</p>
+        <div class="buttons">
+          <a class="btn-info" href="https://linktr.ee/unifecafsede" target="_blank">Saiba Mais</a>
+          <a class="btn-primary" href="https://linktr.ee/unifecafsede" target="_blank">Baixar</a>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="tela-boas-vindas" id="tela-boas-vindas">
-    <h2 id="saudacao"></h2>
-
-    <section>
-      <h3>Ambiente de Aula</h3>
-      <p><span class="destaque">RA:</span> **</p>
-      <p><span class="destaque">Login:</span> **</p>
-      <p><span class="destaque">Senha:</span> **</p>
-      <a class="botao" href="https://fecaf.brightspace.com" target="_blank">Acessar Ambiente</a><br/>
-      <a href="https://www.youtube.com/watch?v=ytQwZ92Lx24" target="_blank">Vídeo de ajuda</a>
-    </section>
-
-    <section>
-      <h3>Secretária Virtual</h3>
-      <p><span class="destaque">Login:</span> **</p>
-      <p><span class="destaque">Senha:</span> **</p>
-      <a class="botao" href="https://mentorweb.fecaf.com.br/" target="_blank">Acessar Mentor</a><br/>
-      <a href="https://www.youtube.com/watch?v=nR--e6EKVsY" target="_blank">Vídeo de ajuda</a>
-    </section>
-
-    <section>
-      <h3>Email do Aluno (Gmail)</h3>
-      <p><span class="destaque">Email:</span> aluno@a.fecaf.com.br</p>
-      <p><span class="destaque">Senha:</span> Sua data de nascimento</p>
-      <a href="https://www.youtube.com/watch?v=2McSLt_sxNM" target="_blank">Vídeo de ajuda</a>
-    </section>
-
-    <section>
-      <h3>Aplicativos para Baixar</h3>
-      <ul>
-        <li><a href="https://play.google.com/store/apps/details?id=com.inovatecnologia.carteirinha" target="_blank">Carteirinha Digital (Android)</a></li>
-        <li><a href="https://apps.apple.com/br/app/carteirinha/id1476399490" target="_blank">Carteirinha Digital (iPhone)</a></li>
-        <li><a href="https://play.google.com/store/apps/details?id=com.d2l.brightspace.student.android" target="_blank">Brightspace App (Android)</a></li>
-        <li><a href="https://play.google.com/store/apps/details?id=edusoft.com.br.mentorweb" target="_blank">Mentor App (Android)</a></li>
-        <li><a href="https://apps.apple.com/br/app/mentor-mobile/id1318801503" target="_blank">Mentor App (iPhone)</a></li>
-      </ul>
-    </section>
-
-    <section>
-      <h3>Outros Links</h3>
-      <a href="https://linktr.ee/unifecafsede" class="botao" target="_blank">Linktree UniFECAF</a>
-    </section>
+    <br/><div style="text-align: center; margin-top: 40px;">
+      <button onclick="sair()" class="btn-info" style="width: 200px;">Sair</button>
+    </div>
   </div>
-
   <script>
     function entrar() {
-      const nome = document.getElementById("nome").value;
-      const telaLogin = document.getElementById("tela-login");
-      const telaBoasVindas = document.getElementById("tela-boas-vindas");
-      const saudacao = document.getElementById("saudacao");
-
-      if (nome.trim() !== "") {
-        saudacao.innerText = "Bem-vindo " + nome + " à UniFECAF!";
-        telaLogin.classList.remove("active");
-        telaBoasVindas.classList.add("active");
+      const nome = document.getElementById("nome").value.trim();
+      if (nome) {
+        document.getElementById("login-screen").style.display = "none";
+        document.getElementById("sistema-screen").style.display = "block";
       } else {
         alert("Por favor, preencha seu nome.");
       }
     }
-  </script>
 
+    function sair() {
+      document.getElementById("login-screen").style.display = "block";
+      document.getElementById("sistema-screen").style.display = "none";
+      document.getElementById("nome").value = "";
+      document.getElementById("nascimento").value = "";
+    }
+  </script>
 </body>
+</html>
+
 </html>
